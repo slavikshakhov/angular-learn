@@ -1,6 +1,11 @@
 <div class="a-container">
   <h1 #header>A component as parent</h1>
-  <app-b *ngFor="let el of els" [el]="el">
+
+  <ng-template #noElColor let-name="el">
+    <p>{{ name }} has no color defined</p>
+  </ng-template>
+
+  <app-b *ngFor="let el of els" [el]="el" [noCol]="noElColor">
     <app-c [id]="el.id"></app-c>
-  </app-b>  
+  </app-b>
 </div>

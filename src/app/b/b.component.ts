@@ -5,6 +5,7 @@ import {
   ContentChild,
   AfterViewInit,
   ElementRef,
+  TemplateRef,
 } from '@angular/core';
 import { CComponent } from '../c/c.component';
 import { El } from '../types';
@@ -17,6 +18,7 @@ import { El } from '../types';
 export class BComponent implements OnInit, AfterViewInit {
   x: number = 5;
   @Input() el!: El;
+  @Input() noCol!: TemplateRef<any>
 
   @ContentChild(CComponent) c!: CComponent;
   @ContentChild(CComponent, { read: ElementRef }) cDom!: CComponent;

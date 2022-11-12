@@ -1,3 +1,5 @@
 export interface El {
-name: string; id: number
+  name: string;
+  id: number;
+  color?: string;
 }

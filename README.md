@@ -7,6 +7,5 @@ comp b renders:
         <ng-content></ng-content>     !!! use select
     </div>
 
-1. pass var from a to c (ex. el)
-2. from b access c as ng-content, get c's fields 
-3. from b access c as ng-content, get dom of c 
+1. b renders ng-content (c) if el.color defined, if not --> renders html passed from a (as ng-template)
+!!! if c has local styles, if ng-template rendered instead of c, no styles applied

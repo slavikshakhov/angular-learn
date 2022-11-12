@@ -1,5 +1,10 @@
 <div class="b-container">
   <h4>b component</h4>
   <p>Name: {{ el.name }}, Id: {{ el.id }}</p>
-  <ng-content select="app-c"></ng-content>
+
+  <ng-content select="app-c" *ngIf="el.color; else noColorAvail"></ng-content>
+  <ng-template #noColorAvail>
+    <ng-container *ngTemplateOutlet="noCol" ;context:{color: el.color}>
+    </ng-container>
+  </ng-template>
 </div>
