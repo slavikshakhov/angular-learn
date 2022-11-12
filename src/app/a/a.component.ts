@@ -1,5 +1,18 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { BComponent } from '../b/b.component';
+import { El } from '../types';
+
+const els = [
+  { name: 'el1', id: 1 },
+  { name: 'el2', id: 2 },
+  { name: 'el3', id: 3 },
+];
 
 @Component({
   selector: 'app-a',
@@ -7,21 +20,21 @@ import { BComponent } from '../b/b.component';
   styleUrls: ['./a.component.css'],
 })
 export class AComponent implements AfterViewInit {
-  @ViewChild(BComponent) b!: BComponent; // access b comp by b tag
-  // @ViewChild('bRef1') b!: BComponent; // access b comp by ref
+  els: El[] = els;
 
-  // @ViewChild(BComponent, { read: ElementRef }) b!: ElementRef; // access to <b> as DOM belonging to a (not b's html)
-  @ViewChild('header') header!: ElementRef;
+  @ViewChildren(BComponent) bs!: QueryList<BComponent>; // access b comp by b tag
+  //@ViewChildren(BComponent, { read: ElementRef }) bs!: QueryList<ElementRef>;   // list of b as DOM els (part of a html)
   constructor() {}
   ngAfterViewInit(): void {
-    console.log({ bField: this.b.x }); // access b comp fields
-    // console.log({ b: this.b });
-    console.log({ header: this.header });
-    this.header.nativeElement.style.color = 'red';
+    console.log({
+      firstChildField: this.bs.first.el,
+      lastChildField: this.bs.last.el,
+      numOfChildren: this.bs.length,
+    });
   }
 }
 
 /*
-ViewChild accesses first match
-use ref if > 1 el but diff behaviour 
+bs.forEach(b => console.log(b))
+bs.changes.subscribe(b => console.log(b))  // if QueryLIst changes, delete el or add el...
 */

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { El } from '../types';
 
 @Component({
   selector: 'app-b',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BComponent implements OnInit {
   x: number = 5;
+  @Input() el!: El
 
   constructor() {}
 
