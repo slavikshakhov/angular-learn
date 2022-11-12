@@ -1,4 +1,12 @@
-1. render a as a child of b (b is part of a's html)
-2. from a get access to b's field (x), print it (by b tag or by ref)
-3. from a get access to b as DOM
-4. from a get DOM of any a's html el (h1 by ref) and change it's style
+comp a renders multiple (*ngFor) bs, using els as data arr
+    <b>
+        <c></c>
+    </b>
+comp b renders: 
+    <div>
+        <ng-content></ng-content>     !!! use select
+    </div>
+
+1. pass var from a to c (ex. el)
+2. from b access c as ng-content, get c's fields 
+3. from b access c as ng-content, get dom of c 
