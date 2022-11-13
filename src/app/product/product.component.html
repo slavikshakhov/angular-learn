@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="header">
+    <!-- <img src="assets/NgPokedex.png" />  -->
+    image goes here
+  </div>
+  <div class="content">
+    <div class="list">
+      <div class="list-header">
+        <h3>List of Products</h3>
+        <button mat-raised-button color="primary" (click)="addProduct()">
+          Add Product
+        </button>
+      </div>
+      <app-list
+        [product$]="allProduct$"
+        (productEmitter)="selectProduct($event)"
+      ></app-list>
+    </div>
+    <app-detail
+      [product]="selectedProduct"
+      *ngIf="selectedProduct"
+      (deleteProduct)="deleteProduct()"
+      (updateProduct)="updateProduct()"
+    ></app-detail>
+  </div>
+</div>

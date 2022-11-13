@@ -1,0 +1,18 @@
+<div class="detail">
+  <h2>{{ product.name }}</h2>
+
+  <div class="content">
+    <img [src]="product.url" />
+    <div>
+      <p>Height: {{ product.price }}</p>
+
+      <p>
+        {{ product.description }}
+      </p>
+    </div>
+  </div>
+  <div>
+    <button (click)="update()" mat-raised-button color="primary">Edit</button>
+    <button (click)="delete()" mat-raised-button color="warn">Delete</button>
+  </div>
+</div>
