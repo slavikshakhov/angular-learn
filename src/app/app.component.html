@@ -1,1 +1,6 @@
 <h1>Angular app</h1>
+<ul>
+    <li *ngFor="let item of products| async">
+      {{ item.name }}
+    </li>
+  </ul>
