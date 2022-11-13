@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+.highlighted {
+  border: 6px solid red;
+  box-shadow: 4px 4px 4px 2px rgba(236, 9, 9, 0.2);
+}
